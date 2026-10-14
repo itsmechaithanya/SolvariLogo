@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Solvari Logo Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Solvari Systems &amp; Insights logo system: variations, usage, sizes, color and favicon. HCI 472, Chaithanya.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<style>
+/* Layout: a printed brand-guide sheet. Numbered sections because a guide is read in order; spec tables in mono. */
+:root {
+  --bg: #F5F6F8;
+  --surface: #FFFFFF;
+  --fg: #0E1A2B;
+  --muted: #5A6577;
+  --line: #DCE0E7;
+  --navy: #0E1A2B;
+  --gold: #C8963E;
+  --gold-ink: #9A6E22;
+  --tile-dark: #0E1A2B;
+  --font-display: "Poppins", "Avenir Next", "Segoe UI", sans-serif;
+  --font-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A121E; --surface: #111C2C; --fg: #E9EDF3; --muted: #9AA6B8; --line: #22324A;
+    --gold-ink: #D9AC5C; --tile-dark: #050A12; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A121E; --surface: #111C2C; --fg: #E9EDF3; --muted: #9AA6B8; --line: #22324A;
+  --gold-ink: #D9AC5C; --tile-dark: #050A12; color-scheme: dark;
+}
+
+/* map Bootstrap onto the tokens so both themes follow one source */
+:root, :root[data-bs-theme] {
+  --bs-body-bg: var(--bg); --bs-body-color: var(--fg); --bs-border-color: var(--line);
+  --bs-secondary-color: var(--muted); --bs-emphasis-color: var(--fg);
+  --bs-body-font-family: var(--font-body); --bs-link-color: var(--gold-ink); --bs-link-hover-color: var(--fg);
+  --bs-link-color-rgb: 154,110,34;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 1rem; line-height: 1.6; }
+h1, h2, h3, .display-font { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.015em; text-wrap: balance; color: var(--fg); }
+.mono { font-family: var(--font-mono); font-size: .8125rem; }
+.muted { color: var(--muted); }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* theme-swapped logo images */
+.on-dark { display: none !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .on-dark { display: inline-block !important; } :root:not([data-theme="light"]) .on-light { display: none !important; } }
+:root[data-theme="dark"] .on-dark { display: inline-block !important; }
+:root[data-theme="dark"] .on-light { display: none !important; }
+
+/* nav */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+.topbar .inner { display: flex; align-items: center; gap: 1rem; padding-block: .75rem; max-width: 1180px; margin: 0 auto; }
+.topbar .brand { display: flex; align-items: center; gap: .6rem; color: var(--fg); text-decoration: none; font-family: var(--font-display); font-weight: 500; }
+.topbar .brand img { width: 28px; height: 28px; }
+.topbar nav { display: flex; gap: 1.1rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+.topbar nav a { color: var(--muted); text-decoration: none; font-size: .875rem; white-space: nowrap; }
+.topbar nav a:hover { color: var(--fg); }
+.theme-btn { border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 999px; font-size: .8125rem; padding: .3rem .8rem; white-space: nowrap; }
+@media (max-width: 860px) { .topbar nav { display: none; } .theme-btn { margin-left: auto; } }
+
+/* sections */
+.container-guide { max-width: 1180px; margin: 0 auto; }
+section.block { padding-block: 4.5rem; border-bottom: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-ink); }
+.section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 2rem; margin-bottom: 2.5rem; align-items: end; }
+.section-head h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin: .35rem 0 0; }
+.section-head p { margin: 0; color: var(--muted); max-width: 60ch; }
+@media (max-width: 768px) { .section-head { grid-template-columns: 1fr; gap: .75rem; } }
+
+/* hero */
+.hero { padding-block: 4rem 3.5rem; border-bottom: 1px solid var(--line); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+.hero-logo { max-width: 100%; width: 520px; height: auto; }
+.hero h1 { font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 400; color: var(--muted); margin: 2.25rem 0 0; max-width: 34ch; letter-spacing: 0; }
+.meta-list { display: grid; grid-template-columns: auto 1fr; gap: .4rem 1.5rem; margin: 0; }
+.meta-list dt { font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 400; padding-top: .2rem; }
+.meta-list dd { margin: 0; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+/* concept */
+.concept-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+.construction { width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; }
+.construction .guide { fill: none; stroke: var(--muted); stroke-width: .35; stroke-dasharray: 1.2 1.2; }
+.construction .axis { stroke: var(--gold-ink); stroke-width: .35; }
+.construction .q { fill: var(--fg); }
+.construction .a { fill: var(--gold); }
+.construction text { font-family: var(--font-mono); font-size: 3.2px; fill: var(--muted); }
+.legend { display: grid; gap: 1.25rem; }
+.legend .row-item { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); gap: 1rem; align-items: start; }
+.swatch-dot { width: 2.25rem; height: 2.25rem; border-radius: 50%; }
+.legend h3 { font-size: 1.05rem; margin: 0 0 .2rem; }
+.legend p { margin: 0; color: var(--muted); }
+@media (max-width: 860px) { .concept-grid { grid-template-columns: 1fr; } }
+
+/* variation cards */
+.var-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; height: 100%; display: flex; flex-direction: column; }
+.var-stage { aspect-ratio: 16 / 10; max-width: 100%; display: grid; place-items: center; padding: 2rem; }
+.var-stage img { max-width: 78%; max-height: 62%; }
+.var-stage.split { grid-template-columns: 1fr 1fr; padding: 0; }
+.var-stage.split > div { height: 100%; width: 100%; display: grid; place-items: center; padding: 1.25rem; }
+.var-stage.split img { max-width: 70%; max-height: 50%; }
+.stage-white { background: #FFFFFF; }
+.stage-black { background: #000000; }
+.stage-navy { background: #0E1A2B; }
+.stage-gold { background: #C8963E; }
+.var-body { padding: 1.25rem 1.35rem 1.4rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
+.var-body h3 { font-size: 1.15rem; margin: 0; display: flex; align-items: baseline; gap: .6rem; }
+.var-body h3 .num { font-family: var(--font-mono); font-size: .75rem; color: var(--gold-ink); }
+.var-body p { margin: 0; color: var(--muted); font-size: .9375rem; }
+.dl-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: auto; padding-top: .4rem; }
+.dl-row a { font-family: var(--font-mono); font-size: .75rem; border: 1px solid var(--line); border-radius: 999px; padding: .2rem .65rem; color: var(--fg); text-decoration: none; }
+.dl-row a:hover { border-color: var(--gold); }
+
+/* favicon tabs */
+.tab-mock { border-radius: 10px 10px 0 0; padding: .55rem .9rem; display: flex; align-items: center; gap: .55rem; font-size: .8125rem; max-width: 260px; }
+.tab-light { background: #FFFFFF; color: #1F2937; border: 1px solid #D7DCE3; border-bottom: 0; }
+.tab-dark { background: #2B2F36; color: #E6E8EB; }
+.tab-bar { padding: .75rem .75rem 0; border-radius: 8px 8px 0 0; display: flex; }
+.tab-bar.light { background: #DEE3EA; }
+.tab-bar.dark { background: #1A1D22; }
+.tab-mock img { width: 16px; height: 16px; }
+.size-row { display: flex; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; }
+.size-row figure { margin: 0; display: grid; justify-items: center; gap: .4rem; }
+.size-row figcaption { font-family: var(--font-mono); font-size: .75rem; color: var(--muted); }
+
+/* lockups */
+.lockup-stage { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; display: grid; place-items: center; padding: 2.5rem 1.5rem; min-height: 200px; }
+.lockup-stage img { max-width: 100%; height: auto; }
+
+/* specs table */
+.spec { width: 100%; border-collapse: collapse; font-size: .9375rem; }
+.spec th, .spec td { padding: .7rem .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.spec th { font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 400; }
+.spec td.mono { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.table-scroll { overflow-x: auto; }
+
+/* clear space */
+.clear-box { position: relative; display: inline-block; padding: 34px; background: repeating-linear-gradient(45deg, transparent 0 6px, color-mix(in srgb, var(--gold) 18%, transparent) 6px 7px); border: 1px dashed var(--gold-ink); max-width: 100%; }
+.clear-box img { display: block; width: 300px; max-width: 100%; height: auto; outline: 1px solid var(--line); background: var(--surface); }
+.clear-x { position: absolute; font-family: var(--font-mono); font-size: .7rem; color: var(--gold-ink); }
+
+/* palette */
+.chip { border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); height: 100%; }
+.chip .fill { height: 120px; border-bottom: 1px solid var(--line); }
+.chip .info { padding: .9rem 1rem; }
+.chip .info h3 { font-size: 1rem; margin: 0 0 .35rem; }
+.chip .info dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: .1rem .8rem; font-family: var(--font-mono); font-size: .75rem; }
+.chip .info dt { color: var(--muted); font-weight: 400; }
+.chip .info dd { margin: 0; }
+
+/* type */
+.type-specimen { font-family: var(--font-display); font-weight: 500; font-size: clamp(3rem, 9vw, 6.5rem); line-height: 1; letter-spacing: -0.012em; color: var(--fg); overflow-wrap: anywhere; }
+
+/* misuse */
+.misuse { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; height: 100%; }
+.misuse .stage { height: 150px; display: grid; place-items: center; background: #FFFFFF; overflow: hidden; position: relative; }
+.misuse .stage img { width: 62%; }
+.misuse .cap { padding: .75rem 1rem; font-size: .875rem; display: flex; gap: .5rem; align-items: baseline; }
+.misuse .cap .x { color: #C0392B; font-family: var(--font-mono); font-weight: 500; }
+.m-stretch img { transform: scaleX(1.45) scaleY(.8); }
+.m-rotate img { transform: rotate(-18deg); }
+.m-recolor img { filter: hue-rotate(150deg) saturate(2.2); }
+.m-shadow img { filter: drop-shadow(4px 6px 3px rgba(0,0,0,.55)); }
+.m-busy { background: repeating-conic-gradient(#C8963E 0 25%, #F1D9A8 0 50%) 0 0 / 22px 22px !important; }
+.m-low { background: #3A4A63 !important; }
+
+footer { padding-block: 3rem; color: var(--muted); font-size: .875rem; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+
+
+<header class="topbar wrap">
+  <div class="inner">
+    <a class="brand" href="#top"><img src="favicon.svg" alt="" width="28" height="28">Solvari Logo Guide</a>
+    <nav aria-label="Sections">
+      <a href="#concept">Concept</a>
+      <a href="#variations">Variations</a>
+      <a href="#favicon">Favicon</a>
+      <a href="#lockups">Lockups</a>
+      <a href="#usage">Usage</a>
+      <a href="#color">Color &amp; type</a>
+      <a href="#misuse">Misuse</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch light or dark background">Theme: auto</button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero wrap">
+    <div class="container-guide hero-grid">
+      <div>
+        <div class="eyebrow mb-4">Solvari Systems &amp; Insights · Identity v1.0</div>
+        <img class="hero-logo on-light" src="logos/solvari-horizontal-color.svg" alt="Solvari logo, color version">
+        <img class="hero-logo on-dark" src="logos/solvari-horizontal-color-reverse.svg" alt="Solvari logo, reverse color version">
+        <h1>A question and its answer, set side by side so that together they draw the S in Solvari.</h1>
+      </div>
+      <dl class="meta-list">
+        <dt>Course</dt><dd>HCI 472 · Design Fundamentals II</dd>
+        <dt>Designer</dt><dd>Chaithanya · 2278639</dd>
+        <dt>Client</dt><dd>Solvari Systems &amp; Insights, Chicago IL</dd>
+        <dt>Concept</dt><dd>No. 5 of 13 sketches, “Question &amp; Answer”</dd>
+        <dt>Files</dt><dd>All marks are vector SVG, outlined type</dd>
+      </dl>
+    </div>
+  </div>
+
+  <!-- CONCEPT -->
+  <section class="block wrap" id="concept">
+    <div class="container-guide">
+      <div class="section-head">
+        <div><div class="eyebrow">01 · Concept</div><h2>Two halves, one solution</h2></div>
+        <p>Solvari stands for solving various problems. The mark splits one idea into two contrasting forms. The upper shape is the question, the lower shape is the answer. Rotated 180° from each other, they form an S.</p>
+      </div>
+      <div class="concept-grid">
+        <svg class="construction" viewBox="-6 -6 112 112" role="img" aria-label="Construction drawing: two circles of equal radius, each cut by a chord tilted fifteen degrees">
+          <circle class="guide" cx="38" cy="37" r="26"/>
+          <circle class="guide" cx="62" cy="63" r="26"/>
+          <line class="axis" x1="37.65" y1="75.6" x2="58.35" y2="-1.6"/>
+          <line class="axis" x1="41.65" y1="101.6" x2="62.35" y2="24.4"/>
+          <path class="q" d="M53.58 16.18A26 26 0 1 0 41.08 62.82Z"/>
+          <path class="a" d="M53.58 16.18A26 26 0 1 0 41.08 62.82Z" transform="rotate(180 50 50)"/>
+          <text x="2" y="-1.5">r = 26u</text>
+          <text x="66" y="-1.5">chord 15°</text>
+          <text x="80" y="104">180° turn</text>
+        </svg>
+        <div class="legend">
+          <div class="row-item"><span class="swatch-dot" style="background:var(--fg)"></span><div><h3>The question</h3><p>A deep, steady form in Solvari Navy. It stands for the research side of the business: listening, asking, understanding a problem fully.</p></div></div>
+          <div class="row-item"><span class="swatch-dot" style="background:var(--gold)"></span><div><h3>The answer</h3><p>The same shape turned over, in Insight Gold. It stands for the system that gets built once the question is clear.</p></div></div>
+          <div class="row-item"><span class="swatch-dot" style="border:1px dashed var(--muted)"></span><div><h3>Geometry</h3><p>Both shapes come from one circle cut by a chord tilted 15°. The slant gives the S its forward lean, and the narrow gap keeps the two halves distinct.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VARIATIONS -->
+  <section class="block wrap" id="variations">
+    <div class="container-guide">
+      <div class="section-head">
+        <div><div class="eyebrow">02 · Variations</div><h2>Four core versions</h2></div>
+        <p>Every version is an SVG with outlined type, so it scales cleanly from a 16 px browser tab to a building sign. Pick the version by background and printing method.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <article class="var-card">
+            <div class="var-stage split"><div class="stage-white"><img src="logos/solvari-horizontal-black.svg" alt="Black logo on white"></div><div class="stage-black"><img src="logos/solvari-horizontal-white.svg" alt="White logo on black"></div></div>
+            <div class="var-body">
+              <h3><span class="num">V1</span>Black &amp; white</h3>
+              <p>One-color version for faxes, stamps, engraving, newspaper print and any job limited to a single ink. Use black on light backgrounds and white on dark ones.</p>
+              <div class="dl-row"><a href="logos/solvari-horizontal-black.svg" download>horizontal-black.svg</a><a href="logos/solvari-horizontal-white.svg" download>horizontal-white.svg</a><a href="logos/solvari-mark-black.svg" download>mark-black.svg</a></div>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6">
+          <article class="var-card">
+            <div class="var-stage stage-white"><img src="logos/solvari-horizontal-color.svg" alt="Color logo on white"></div>
+            <div class="var-body">
+              <h3><span class="num">V2</span>Color (primary)</h3>
+              <p>The default logo. Navy question, gold answer, navy wordmark. Use on white or very light backgrounds for the website, decks, documents and print.</p>
+              <div class="dl-row"><a href="logos/solvari-horizontal-color.svg" download>horizontal-color.svg</a><a href="logos/solvari-stacked-color.svg" download>stacked-color.svg</a><a href="logos/solvari-mark-color.svg" download>mark-color.svg</a></div>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6">
+          <article class="var-card">
+            <div class="var-stage stage-navy"><img src="logos/solvari-horizontal-color-reverse.svg" alt="Reverse logo on navy"></div>
+            <div class="var-body">
+              <h3><span class="num">V3</span>Reverse</h3>
+              <p>For navy, black or dark photographic backgrounds and dark-mode interfaces. The question turns white, the answer stays gold so the two halves keep their meaning.</p>
+              <div class="dl-row"><a href="logos/solvari-horizontal-color-reverse.svg" download>horizontal-reverse.svg</a><a href="logos/solvari-stacked-color-reverse.svg" download>stacked-reverse.svg</a><a href="logos/solvari-mark-color-reverse.svg" download>mark-reverse.svg</a></div>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6">
+          <article class="var-card">
+            <div class="var-stage split"><div class="stage-white"><img src="logos/favicon.svg" alt="Favicon on light background" style="max-width:34%"></div><div class="stage-black"><img src="logos/favicon.svg" alt="Favicon on dark background" style="max-width:34%"></div></div>
+            <div class="var-body">
+              <h3><span class="num">V4</span>Favicon &amp; app icon</h3>
+              <p>The mark alone, centered on a navy rounded square. The solid tile keeps it legible on both light and dark browser tabs. This page uses it in its own tab.</p>
+              <div class="dl-row"><a href="logos/favicon.svg" download>favicon.svg</a><a href="logos/solvari-icon-light.svg" download>icon-light.svg</a><a href="logos/solvari-icon-gold.svg" download>icon-gold.svg</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAVICON -->
+  <section class="block wrap" id="favicon">
+    <div class="container-guide">
+      <div class="section-head">
+        <div><div class="eyebrow">03 · Favicon</div><h2>In the browser tab</h2></div>
+        <p>Browser tabs can be light or dark, so the favicon carries its own navy background. At 16 px the gap between the halves still reads, which is why the gap is never narrowed.</p>
+      </div>
+      <div class="row g-4 align-items-end">
+        <div class="col-12 col-lg-6">
+          <div class="tab-bar light"><div class="tab-mock tab-light"><img src="favicon.svg" alt="">Solvari · Human first</div></div>
+          <div class="tab-bar dark mt-3"><div class="tab-mock tab-dark"><img src="favicon.svg" alt="">Solvari · Human first</div></div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="size-row">
+            <figure><img src="favicon.svg" alt="16 pixel favicon" width="16" height="16"><figcaption>16 px</figcaption></figure>
+            <figure><img src="favicon.svg" alt="32 pixel favicon" width="32" height="32"><figcaption>32 px</figcaption></figure>
+            <figure><img src="favicon.svg" alt="48 pixel icon" width="48" height="48"><figcaption>48 px</figcaption></figure>
+            <figure><img src="logos/solvari-icon-light.svg" alt="64 pixel light icon" width="64" height="64"><figcaption>64 px light</figcaption></figure>
+            <figure><img src="favicon.svg" alt="180 pixel app icon" width="120" height="120"><figcaption>180 px app</figcaption></figure>
+          </div>
+        </div>
+      </div>
+      <div class="table-scroll mt-4">
+        <table class="spec">
+          <thead><tr><th>File</th><th>Size</th><th>Where it goes</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">favicon.svg</td><td class="mono">any</td><td>Browser tab, bookmarks. <span class="mono">&lt;link rel="icon" type="image/svg+xml" href="favicon.svg"&gt;</span></td></tr>
+            <tr><td class="mono">favicon-32.png</td><td class="mono">32 × 32</td><td>Fallback for older browsers</td></tr>
+            <tr><td class="mono">apple-touch-icon.png</td><td class="mono">180 × 180</td><td>iOS home screen</td></tr>
+            <tr><td class="mono">solvari-icon-light.svg</td><td class="mono">any</td><td>Social avatars and app stores that already sit on a dark UI</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCKUPS -->
+  <section class="block wrap" id="lockups">
+    <div class="container-guide">
+      <div class="section-head">
+        <div><div class="eyebrow">04 · Configurations</div><h2>Lockups for every space</h2></div>
+        <p>The mark and wordmark keep fixed spacing in each lockup. Use the files as supplied rather than placing the two parts by hand.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-7">
+          <div class="lockup-stage"><img class="on-light" src="logos/solvari-horizontal-color.svg" alt="Horizontal lockup" style="width:340px"><img class="on-dark" src="logos/solvari-horizontal-color-reverse.svg" alt="Horizontal lockup, reverse" style="width:340px"></div>
+          <h3 class="h6 mt-3 mb-1">Horizontal (primary)</h3><p class="muted mb-0">Website header, letterhead, email signature, slide footers. Gap between mark and word = 0.3 × mark height.</p>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-5">
+          <div class="lockup-stage"><img class="on-light" src="logos/solvari-stacked-color.svg" alt="Stacked lockup" style="width:170px"><img class="on-dark" src="logos/solvari-stacked-color-reverse.svg" alt="Stacked lockup, reverse" style="width:170px"></div>
+          <h3 class="h6 mt-3 mb-1">Stacked</h3><p class="muted mb-0">Square or tall spaces: title slides, posters, merchandise, event badges.</p>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-5">
+          <div class="lockup-stage"><img class="on-light" src="logos/solvari-mark-color.svg" alt="Mark only" style="width:96px"><img class="on-dark" src="logos/solvari-mark-color-reverse.svg" alt="Mark only, reverse" style="width:96px"></div>
+          <h3 class="h6 mt-3 mb-1">Mark only</h3><p class="muted mb-0">Profile pictures, favicons, watermarks, and places where Solvari is already named nearby.</p>
+        </div>
+        <div class="col-12 col-lg-7">
+          <div class="lockup-stage"><img class="on-light" src="logos/solvari-wordmark-color.svg" alt="Wordmark only" style="width:260px"><img class="on-dark" src="logos/solvari-wordmark-color-reverse.svg" alt="Wordmark only, reverse" style="width:260px"></div>
+          <h3 class="h6 mt-3 mb-1">Wordmark only</h3><p class="muted mb-0">Narrow horizontal strips such as partner logo walls or legal footers where the mark would be too small to read.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USAGE -->
+  <section class="block wrap" id="usage">
+    <div class="container-guide">
+      <div class="section-head">
+        <div><div class="eyebrow">05 · Usage</div><h2>Sizes and clear space</h2></div>
+        <p>Keep an empty margin around the logo equal to <strong>x</strong>, the width of one half-shape. Nothing, including other logos, text or image edges, enters this zone.</p>
+      </div>
+      <div class="row g-4 align-items-center">
+        <div class="col-12 col-lg-6">
+          <div class="clear-box">
+            <span class="clear-x" style="top:10px;left:50%">x</span>
+            <span class="clear-x" style="bottom:10px;left:50%">x</span>
+            <span class="clear-x" style="left:14px;top:45%">x</span>
+            <span class="clear-x" style="right:14px;top:45%">x</span>
+            <img class="on-light" src="logos/solvari-horizontal-color.svg" alt="Logo with clear space marked">
+            <img class="on-dark" src="logos/solvari-horizontal-color-reverse.svg" alt="Reverse logo with clear space marked" style="background:transparent">
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="table-scroll">
+            <table class="spec">
+              <thead><tr><th>Version</th><th>Digital min.</th><th>Print min.</th><th>Common size</th></tr></thead>
+              <tbody>
+                <tr><td>Horizontal</td><td class="mono">120 px wide</td><td class="mono">30 mm</td><td class="mono">Header 180–240 px</td></tr>
+                <tr><td>Stacked</td><td class="mono">72 px wide</td><td class="mono">20 mm</td><td class="mono">Title slide 320 px</td></tr>
+                <tr><td>Mark only</td><td class="mono">24 px tall</td><td class="mono">6 mm</td><td class="mono">Avatar 400 × 400</td></tr>
+                <tr><td>Wordmark</td><td class="mono">80 px wide</td><td class="mono">20 mm</td><td class="mono">Footer 120 px</td></tr>
+                <tr><td>Favicon</td><td class="mono">16 px</td><td class="mono">n/a</td><td class="mono">32 / 180 px</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="h6 mt-4 mb-2">Choosing a version by background</h3>
+          <ul class="muted mb-0">
+            <li>White or light grey: <strong>Color (V2)</strong>, or black (V1) for one-ink jobs.</li>
+            <li>Navy, black, dark photos, dark mode: <strong>Reverse (V3)</strong>, or white (V1).</li>
+            <li>Gold or mid-tone backgrounds: one-color black or white only.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row g-4 mt-4">
+        <div class="col-12 col-md-6"><div class="var-stage stage-white" style="border:1px solid var(--line);border-radius:6px"><img src="logos/solvari-horizontal-color.svg" alt="Logo on light background"></div><p class="mono muted mt-2 mb-0">Light browser background · #FFFFFF</p></div>
+        <div class="col-12 col-md-6"><div class="var-stage" style="background:#121212;border-radius:6px"><img src="logos/solvari-horizontal-color-reverse.svg" alt="Logo on dark background"></div><p class="mono muted mt-2 mb-0">Dark browser background · #121212</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR & TYPE -->
+  <section class="block wrap" id="color">
+    <div class="container-guide">
+      <div class="section-head">
+        <div><div class="eyebrow">06 · Color &amp; type</div><h2>Palette and typeface</h2></div>
+        <p>Navy and gold follow Solvari’s company profile deck. Navy does the work; gold is used only for the answer and small highlights.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-6 col-lg-3"><div class="chip"><div class="fill" style="background:#0E1A2B"></div><div class="info"><h3>Solvari Navy</h3><dl><dt>HEX</dt><dd>#0E1A2B</dd><dt>RGB</dt><dd>14 26 43</dd><dt>CMYK</dt><dd>67 40 0 83</dd></dl></div></div></div>
+        <div class="col-6 col-lg-3"><div class="chip"><div class="fill" style="background:#C8963E"></div><div class="info"><h3>Insight Gold</h3><dl><dt>HEX</dt><dd>#C8963E</dd><dt>RGB</dt><dd>200 150 62</dd><dt>CMYK</dt><dd>0 25 69 22</dd></dl></div></div></div>
+        <div class="col-6 col-lg-3"><div class="chip"><div class="fill" style="background:#FFFFFF"></div><div class="info"><h3>White</h3><dl><dt>HEX</dt><dd>#FFFFFF</dd><dt>RGB</dt><dd>255 255 255</dd><dt>CMYK</dt><dd>0 0 0 0</dd></dl></div></div></div>
+        <div class="col-6 col-lg-3"><div class="chip"><div class="fill" style="background:#000000"></div><div class="info"><h3>Black</h3><dl><dt>HEX</dt><dd>#000000</dd><dt>RGB</dt><dd>0 0 0</dd><dt>CMYK</dt><dd>0 0 0 100</dd></dl></div></div></div>
+      </div>
+      <div class="row g-4 mt-4 align-items-end">
+        <div class="col-12 col-lg-7"><div class="type-specimen">Solvari</div></div>
+        <div class="col-12 col-lg-5">
+          <dl class="meta-list">
+            <dt>Wordmark</dt><dd>Poppins Medium, tracking −12, converted to outlines</dd>
+            <dt>Why</dt><dd>Geometric round forms echo the circles in the mark; the open “a” and “S” keep it friendly</dd>
+            <dt>Body text</dt><dd>DM Sans for website and documents</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISUSE -->
+  <section class="block wrap" id="misuse">
+    <div class="container-guide">
+      <div class="section-head">
+        <div><div class="eyebrow">07 · Misuse</div><h2>What not to do</h2></div>
+        <p>These changes break the question-and-answer idea or make the logo hard to read.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-6 col-lg-4"><div class="misuse"><div class="stage m-stretch"><img src="logos/solvari-horizontal-color.svg" alt="Stretched logo"></div><div class="cap"><span class="x">✕</span>Don’t stretch or squash</div></div></div>
+        <div class="col-6 col-lg-4"><div class="misuse"><div class="stage m-rotate"><img src="logos/solvari-horizontal-color.svg" alt="Rotated logo"></div><div class="cap"><span class="x">✕</span>Don’t rotate</div></div></div>
+        <div class="col-6 col-lg-4"><div class="misuse"><div class="stage m-recolor"><img src="logos/solvari-horizontal-color.svg" alt="Recolored logo"></div><div class="cap"><span class="x">✕</span>Don’t change the colors</div></div></div>
+        <div class="col-6 col-lg-4"><div class="misuse"><div class="stage m-shadow"><img src="logos/solvari-horizontal-color.svg" alt="Logo with drop shadow"></div><div class="cap"><span class="x">✕</span>Don’t add effects</div></div></div>
+        <div class="col-6 col-lg-4"><div class="misuse"><div class="stage m-busy"><img src="logos/solvari-horizontal-color.svg" alt="Logo on busy pattern"></div><div class="cap"><span class="x">✕</span>Don’t place on busy patterns</div></div></div>
+        <div class="col-6 col-lg-4"><div class="misuse"><div class="stage m-low"><img src="logos/solvari-horizontal-color.svg" alt="Color logo on low-contrast background"></div><div class="cap"><span class="x">✕</span>Don’t use the color logo on dark tones</div></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="container-guide d-flex flex-wrap gap-3 justify-content-between">
+    <span>Solvari Systems &amp; Insights · Solutions centered on people.</span>
+    <span class="mono">HCI 472 · Chaithanya · 2278639 · Fall 2026</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  var modes = ['auto', 'light', 'dark'], mode = 'auto';
+  try { mode = localStorage.getItem('solvari-theme') || 'auto'; } catch (e) {}
+  var hostTheme = root.getAttribute('data-theme');
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  function apply() {
+    if (mode === 'auto') { if (hostTheme) root.setAttribute('data-theme', hostTheme); else root.removeAttribute('data-theme'); } else root.setAttribute('data-theme', mode);
+    var eff = mode === 'auto' ? (hostTheme || 'auto') : mode;
+    var dark = eff === 'dark' || (eff === 'auto' && mq.matches);
+    root.setAttribute('data-bs-theme', dark ? 'dark' : 'light');
+    btn.textContent = 'Theme: ' + mode;
+  }
+  btn.addEventListener('click', function () {
+    mode = modes[(modes.indexOf(mode) + 1) % modes.length];
+    try { localStorage.setItem('solvari-theme', mode); } catch (e) {}
+    apply();
+  });
+  if (mq.addEventListener) mq.addEventListener('change', apply);
+  apply();
+})();
+</script>
+</body>
+</html>
